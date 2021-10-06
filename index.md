@@ -2,36 +2,35 @@
 
 You can use the [editor on GitHub](https://github.com/aradhakrishnanGFDL/thor-test/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+### Technical notes ###
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+# Building a docker image for this repository 
 
-```markdown
-Syntax highlighted code block
+A GitHub continous integration workflow that uses repo2docker has been configured. This automatically builds docker images, runs the container, upon successful run state pushes the image to the DockerHub. To ensure the analysis environment is set up as part of the docker build process, configuration files such environment.yml, apt.txt, start, etc have been added based on a base image from Pangeo ( FROM pangeo/base-image:master )
 
-# Header 1
-## Header 2
-### Header 3
+At the end of a successful CI run, one should notice the latest tag updated in corresponding DockerHub repo and image.
+[DockerHub reference for thor-test container] https://hub.docker.com/r/aparnadotnoaa/thor-test
 
-- Bulleted
-- List
+### How to run the THOR notebook example ###
 
-1. Numbered
-2. List
+The docker container is being tested in the cloud only at this time, though it may work from your localhost as well. The only caveat is to ensure the pointers to the data are updated if needed should access to it from the localhost be hindered. 
 
-**Bold** and _Italic_ and `Code` text
+Command to run docker container (note that the following command also pulls the image if it doesn't already exist in your environment)
 
-[Link](url) and ![Image](src)
-```
+docker run -it --name thor_ml -p 8888:8888 aparnadotnoaa/thor_ml:v1.0 jupyter notebook --ip 0.0.0.0
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+If you're testing the above from AWS, launch an EC2 instance where docker is installed. Then, simply run the above command. 
+Open the web-browser from your EC2, or use your public end point and point at the notebook URL printed as part of the docker run command output from above. 
 
-### Jekyll Themes
+# What does the above do?  
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/aradhakrishnanGFDL/thor-test/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+A Jupyter notebook session will be started in port 8888 of the machine in which you're running this container. 
+The notebooks directory has a notebook which should be runnable with pre-configured environments. Feel free to explore use of Dask to scale things up. 
+
+Open the webbrowser to the URL you're pointed to and enjoy the notebook, make changes and explore science. 
+Have changes to contribute? Open an issue in this repo.
 
 ### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Open GitHub issue. 
