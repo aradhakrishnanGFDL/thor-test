@@ -16,9 +16,11 @@ The docker container is being tested in the cloud only at this time, though it m
 
 Command to run docker container (note that the following command also pulls the image if it doesn't already exist in your environment)
 
-docker run -it --name thor_ml -p 8888:8888 aparnadotnoaa/thor_ml:v1.0 jupyter notebook --ip 0.0.0.0
+docker run -it --name thor_ml -p 8888:8888 aparnadotnoaa/thor_ml:latest jupyter notebook --ip 0.0.0.0
 
-If you're testing the above from AWS, launch an EC2 instance where docker is installed. Then, simply run the above command. 
+If you're testing the above from AWS, launch an EC2 instance where docker is installed. ssh into your EC2 instance. 
+Then, simply run the above command. 
+
 Open the web-browser from your EC2, or use your public end point and point at the notebook URL printed as part of the docker run command output from above. 
 
 # What does the above do?  
