@@ -41,6 +41,6 @@ Source code rewrite, docs update, configure test cases in CI for 2 platforms.
 
 ### Credit
 
-Please refer to the original source code repository at https://github.com/maikejulie/DNN4Cli.git 
+Please refer to the [original source code repository] https://github.com/maikejulie/DNN4Cli.git
 
 
