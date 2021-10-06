@@ -5,7 +5,7 @@
 
 # Building a docker image for this repository 
 
-A GitHub continous integration workflow that uses repo2docker has been configured. This automatically builds docker images, runs the container, upon successful run state pushes the image to the DockerHub. To ensure the analysis environment is set up as part of the docker build process, configuration files such environment.yml, apt.txt, start, etc have been added based on a base image from Pangeo ( FROM pangeo/base-image:master )
+A GitHub continous integration workflow that uses repo2docker has been configured for https://github.com/aradhakrishnanGFDL/thor-test. This automatically builds docker images, runs the container, upon successful run state pushes the image to the DockerHub. To ensure the analysis environment is set up as part of the docker build process, configuration files such environment.yml, apt.txt, start, etc have been added based on a base image from Pangeo ( FROM pangeo/base-image:master )
 
 At the end of a successful CI run, one should notice the latest tag updated in corresponding DockerHub repo and image.
 [DockerHub reference for thor-test container] https://hub.docker.com/r/aparnadotnoaa/thor-test
@@ -34,3 +34,7 @@ Have changes to contribute? Open an issue in this repo.
 ### Support or Contact
 
 Open GitHub issue. 
+
+### Future work 
+
+Source code rewrite, docs update, configure test cases in CI for 2 platforms. 
