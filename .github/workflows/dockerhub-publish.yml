@@ -13,4 +13,4 @@ jobs:
       with:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        IMAGE_NAME: "aparnadotnoaa/thor-test:dev"
+        IMAGE_NAME: "aparnadotnoaa/thor-test"
